@@ -1,16 +1,24 @@
 package serializers
 
 import (
+	"time"
+
 	"github.com/rachitaryal/go-fiber-gorm/models"
 )
 
-// type Order struct{
-// 	ID uint `json:"id"`
-// 	ProductReferer int `json:"product_id"`
-// 	Product Product `gorm:"foreignKey:ProductReferer"`
-// 	UserReferer int `json:"user_id"`
-// 	User User `gorm:"foreignKey:UserReferer"`
-// }
+type OrderSerializer struct{
+	ID uint `json:"id"`
+	User UserSerializer `json:"user"`
+	Product ProductSerializer `json:"product"`
+	CreatedAt time.Time `json:"order_date"`
+}
 
 
-func CreateResponseOrder(order models.Order){}
+func CreateResponseOrder(order models.Order, user UserSerializer, product ProductSerializer) OrderSerializer{
+	return OrderSerializer{
+		ID: order.ID,
+		User: user,
+		Product: product,
+		CreatedAt: order.CreatedAt,
+	}
+}
