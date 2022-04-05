@@ -29,6 +29,12 @@ func setupRoutes(app *fiber.App){
 	app.Get("/api/products/:id", controllers.GetProductByID)
 	app.Put("/api/products/:id", controllers.UpdateProduct)
 	app.Delete("/api/products/:id", controllers.DeleteProduct)
+
+	// order endpoints
+	app.Post("/api/orders", controllers.CreateOrder)
+	app.Get("/api/orders", controllers.GetOrders)
+	app.Get("/api/orders/:id", controllers.GetOrderByID)
+
 }
 
 func main(){
