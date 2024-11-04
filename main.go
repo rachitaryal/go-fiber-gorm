@@ -9,7 +9,7 @@ import (
 )
 
 func welcome(c *fiber.Ctx) error {
-	return c.Status(200).SendString("Let's Go!")
+	return c.Status(200).SendString("Let's Go!!!")
 }
 
 func setupRoutes(app *fiber.App){
